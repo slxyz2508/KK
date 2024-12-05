@@ -8,11 +8,11 @@ class Charecter:
         self.max_exp: int = 0
         self.hp: int = 0
         self.max_hp: int = 0
-        self.role: Optional[str] = None  # None means the role has not been assigned yet
+        self.role: Optional[str] = None  
         self.attack: int = 0
         self.potion: int = 0
         self.money: int = 0
-        self.item: List[str] = []  # Inventory is a list of item names
+        self.item: List[str] = []  
 
     def __str__(self) -> str:
         return (
