@@ -155,6 +155,46 @@ class Character:
                 self.hp = self.max_hp
             self.potion -= 1
 
+def text_based_ui():
+    print("Jaywalk RPG")
+    name = input("What's your name: ")
+    player = Character(name)
 
-player1 = Charecter("Ton")
-player1.roleplay("Swordman")
+    while True:
+        print("\nMain Menu:")
+        print("1. Choose Role")
+        print("2. Go Hunting")
+        print("3. Visit Shop")
+        print("4. Use Potion")
+        print("5. Show Status")
+        print("6. Exit Game")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            print("Roles: Swordman, Archer")
+            role = input("Choose your role: ")
+            player.roleplay(role)
+        elif choice == "2":
+            player.huntlv1()
+            print("EXP Gain!:")
+            print(player)
+        elif choice == "3":
+            print("Visiting the shop...")
+            player.shop()
+            item = input("What do you want to buy: ")
+            player.Buy(item)
+        elif choice == "4":
+            print("Using a potion...")
+            player.UsePotion()
+            print("Potion used! Your current status is:")
+            print(player)
+        elif choice == "5":
+            print(player)
+        elif choice == "6":
+            break
+        else:
+            print("Don't break the matrix!!")
+
+
+text_based_ui()
