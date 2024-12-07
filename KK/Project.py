@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-class Charecter:
+class Character:
     def __init__(self, name: str) -> None:
         self.name: str = name
         self.level: int = 1
