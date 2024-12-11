@@ -24,12 +24,14 @@ class Character:
             f"Hp : {self.hp}/{self.max_hp}\n"
             f"Attck: {self.attack}\n"
             f"Money: {self.money}\n"
-            f"Potion: {self.potion}"
+            f"Potion: {self.potion}\n"
+            ":------------------:"
         )
 
     def roleplay(self, roleplay: str) -> None:
         if self.role is not None:
-            print("You can't change your role. Please make a new character.")
+            print("You can't change your role. Please make a new character.\n"
+                  ":-------------:")
         elif roleplay == 'Swordman':
             self.max_exp = 100
             self.hp = 20
@@ -49,7 +51,8 @@ class Character:
 
     def huntlv1(self) -> None:
         if self.hp <= 0:
-            print("You are already dead. Please make a new character.")
+            print("You are already dead. Please make a new character.\n"
+                  ":-------------:")
             return
         damage: float = 20 / self.attack
         self.hp -= int(damage)
@@ -73,82 +76,103 @@ class Character:
                 "All Items You Can Buy:\n"
                 "Chestplate: 1000 $\n"
                 "Better Sword: 500 $\n"
-                "Potion: 300 $"
+                "Potion: 300 $\n"
+                ":-------------:"
             )
         elif self.role == 'Archer':
             print(
                 "All Items You Can Buy:\n"
                 "Scout Suit: 1000 $\n"
                 "New Bow: 500 $\n"
-                "Potion: 300 $"
+                "Potion: 300 $\n"
+                ":-------------:"
             )
 
     def Buy(self, item: str) -> None:
         if self.role == 'Swordman':
             if item == 'Chestplate':
                 if self.money < 1000:
-                    print("You don't have enough money.")
+                    print("You don't have enough money.\n"
+                          ":-------------:")
                 elif item in self.item:
-                    print("You already own this item!")
+                    print("You already own this item!\n"
+                          ":-------------:")
                 else:
                     self.max_hp += 50
                     self.money -= 1000
                     self.item.append(item)
-                    print(f"You have successfully purchased {item}!")
+                    print(f"You have successfully purchased {item}!\n"
+                          ":-------------:")
             elif item == 'Better Sword':
                 if self.money < 500:
-                    print("You don't have enough money.")
+                    print("You don't have enough money.\n"
+                          ":-------------:")
                 elif item in self.item:
-                    print("You already own this item!")
+                    print("You already own this item!\n"
+                          ":-------------:")
                 else:
                     self.attack += 10
                     self.money -= 500
                     self.item.append(item)
-                    print(f"You have successfully purchased {item}!")
+                    print(f"You have successfully purchased {item}!\n"
+                          ":-------------:")
             elif item == 'Potion':
                 if self.money < 300:
-                    print("You don't have enough money.")
+                    print("You don't have enough money.\n"
+                          ":-------------:")
                 else:
                     self.potion += 1
                     self.money -= 300
-                    print(f"You have successfully purchased {item}!")
+                    print(f"You have successfully purchased {item}!\n"
+                          ":-------------:")
             else:
-                print("This item is not available for purchase.")
+                print("This item is not available for purchase.\n"
+                      ":-------------:")
         elif self.role == 'Archer':
             if item == 'Scout Suit':
                 if self.money < 1000:
-                    print("You don't have enough money.")
+                    print("You don't have enough money.\n"
+                          ":-------------:")
                 elif item in self.item:
-                    print("You already own this item!")
+                    print("You already own this item!\n"
+                          ":-------------:")
                 else:
                     self.max_hp += 30
                     self.attack += 5
                     self.money -= 1000
                     self.item.append(item)
-                    print(f"You have successfully purchased {item}!")
+                    print(f"You have successfully purchased {item}!\n"
+                          ":-------------:")
             elif item == 'New Bow':
                 if self.money < 500:
-                    print("You don't have enough money.")
+                    print("You don't have enough money.\n"
+                          ":-------------:")
                 elif item in self.item:
-                    print("You already own this item!")
+                    print("You already own this item!\n"
+                          ":-------------:")
                 else:
                     self.attack += 13
                     self.money -= 500
                     self.item.append(item)
-                    print(f"You have successfully purchased {item}!")
+                    print(f"You have successfully purchased {item}!\n"
+                          ":-------------:")
             elif item == 'Potion':
                 if self.money < 300:
-                    print("You don't have enough money.")
+                    print("You don't have enough money.\n"
+                          ":-------------:")
                 else:
                     self.potion += 1
                     self.money -= 300
-                    print(f"You have successfully purchased {item}!")
+                    print(f"You have successfully purchased {item}!\n"
+                          ":-------------:")
             else:
-                print("This item is not available for purchase.")
+                print("This item is not available for purchase.\n"
+                      ":-------------:")
 
     def UsePotion(self) -> None:
         if self.potion == 0:
-            print("You don't have any potions.")
+            print("You don't have any potions.\n"
+                  ":-------------:")
         else:
             self.hp += 20
             if self.hp > self.max_hp:
